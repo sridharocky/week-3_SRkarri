@@ -5,23 +5,18 @@ dataset = "https://raw.githubusercontent.com/melaniewalsh/Intro-Cultural-Analyti
 
 #Reading the dataset from the url into a DataFrame named 'data'
 data = pd.read_csv(dataset)
-
 data_frame = data.copy()   
  #creating a copy of the original DataFrame to preserve the original data
 
-def task_1():
-    #Defining a function to perfrom task1: analyzing missing values
-    
-    print("\n Exercise 1: \n") 
-    
-    missing_count = data.isnull().sum() #count the number of missing(null) values in each column
-    
-    print(missing_count)    
-     #prints the missing value counts
-    
-    sort_cols = missing_count.sort_values().index.tolist()
-    #sort the column names based on the number of missing values
-    
-    print(sort_cols)#print the sorted list of column names
+def task_2():
+    print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
-task_1()
+    result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
+    #Grouping the data by the 'date_in' column, which represents admission dates,
+    #counts the number of rows per date using size()
+    #then resets the index to turn the grouped data back into a DataFrame
+
+    print(result)   #prints the result to show how many admisisons at each date
+
+
+task_2()
