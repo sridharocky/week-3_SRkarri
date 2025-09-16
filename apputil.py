@@ -8,15 +8,18 @@ data = pd.read_csv(dataset)
 data_frame = data.copy()   
  #creating a copy of the original DataFrame to preserve the original data
 
-def task_2():
-    print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
+def task_3():
+    print("\nExercise 3:")  #prints the header exercise for clarity
 
-    result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
-    #Grouping the data by the 'date_in' column, which represents admission dates,
-    #counts the number of rows per date using size()
-    #then resets the index to turn the grouped data back into a DataFrame
+    data_frame["gender"] = data_frame["gender"].astype(str).str.strip().str.capitalize()
+    #cleans the "column": convert all values to string and removes leading/trailing spaces and 
+    # capitalizes the first letter of each value
 
-    print(result)   #prints the result to show how many admisisons at each date
+    print("Unique gender values:", data_frame["gender"].unique())
+    #print the unique gender values after claening
 
+    result = data_frame.groupby("gender")["age"].mean()
+    #Group the data by gender and calcluate the average age for each gender
+    print(result)
 
-task_2()
+task_3()#callign the function
