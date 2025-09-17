@@ -77,12 +77,11 @@ def task_2():
     print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
     result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
-    total_admissions = result["total_admissions"].sum()
     #Grouping the data by the 'date_in' column, which represents admission dates,
     #counts the number of rows per date using size()
     #then resets the index to turn the grouped data back into a DataFrame
 
-    return result, total_admissions  #prints the result to show how many admisisons at each date
+    return result,  #prints the result to show how many admisisons at each date
 
 
 def task_3():
