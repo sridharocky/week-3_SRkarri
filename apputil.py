@@ -37,12 +37,13 @@ def to_binary(n):
     #bin(n) returns a string like '0b10' ob means binary
     binary = bin(n).replace("0b","") #removes the "0b" prefix, leaving only the binarydigits
     #print the binary representaion
-    print(binary)
+    return binary
 
 #testing the function with examples
 
-to_binary(2)# output should be 10
-to_binary(12)# output should be 1100
+print(to_binary(2))# output should be 10
+
+
 
 
 
