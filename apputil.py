@@ -76,7 +76,7 @@ def task_1():
 def task_2():
     print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
-    data['date_in'] = pandas.to_datetime(data['date_in'], errors='coerce')
+    data['date_in'] = pd.to_datetime(data['date_in'], errors='coerce')
 
     # Extract year
     data['year'] = data['date_in'].dt.year
