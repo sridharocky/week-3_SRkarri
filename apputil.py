@@ -70,7 +70,7 @@ def task_1():
     print(missing_count)    
      #prints the missing value counts
     
-    sort_cols = missing_count.sort_values().index.tolist()
+    sort_cols = sorted(missing_count.index.tolist(), key=lambda col: (missing_count[col], col))
     #sort the column names based on the number of missing values
     
     return sort_cols#print the sorted list of column names
@@ -80,11 +80,12 @@ def task_2():
     print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
     result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
+    total_admissions = result["total_admissions"].sum()
     #Grouping the data by the 'date_in' column, which represents admission dates,
     #counts the number of rows per date using size()
     #then resets the index to turn the grouped data back into a DataFrame
 
-    return result   #prints the result to show how many admisisons at each date
+    return result, total_admissions  #prints the result to show how many admisisons at each date
 
 
 def task_3():
@@ -110,7 +111,7 @@ def task_4():
         print("Note: some entries have missing profession data.")
 
     #get the top 5 most common professions using value_counts()
-    top_5 = data_frame["profession"].value_counts().head(5)
+    top_5 = data_frame["profession"].value_counts().head(5).index.tolist()
     return top_5
 
 
