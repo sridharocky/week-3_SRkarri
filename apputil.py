@@ -61,21 +61,21 @@ data_frame = data.copy()
 
 
 def task_1():
-    #Defining a function to perfrom task1: analyzing missing values
-    
     print("\n Exercise 1: \n") 
     
-    missing_count = data.isnull().sum().reset_index() #count the number of missing(null) values in each column
-    missing_count.columns = ["column","missing"]
+    # Count missing values
+    missing_count = data.isnull().sum().reset_index()
+    missing_count.columns = ["column", "missing"]
     print(missing_count)    
-     #prints the missing value counts
     
+    # Sort ONLY by number of missing values, preserving original order for ties
     sort_cols = missing_count.sort_values(
-        by=["missing", "column"], 
-        kind="mergesort"    ## 'kind="mergesort"' is used because it's a stable sort (preserves the order of equal elements).
+        by="missing", 
+        kind="mergesort"
     )["column"].tolist()
     
     return sort_cols
+
 
 
 def task_2():
