@@ -1,4 +1,4 @@
-def fib(n):             
+def fibonacci(n):             
     #Defining a function to calculate nth Fibonacci number
     if n == 0:
         # If n is 0, return 0(first Fibonacci number)
@@ -11,17 +11,17 @@ def fib(n):
         #Recursive case:
         #The nth Fibonacci number is the sum of the (n-1)th and (n-2)th numbers
         ##becasue current fib is sum of last 2 fibs
-        return fib(n-1) + fib(n-2)
+        return fibonacci(n-1) + fibonacci(n-2)
 
-print("fib(9)=", fib(9))
+print("fibonacci(9)=", fibonacci(9))
 
-print(fib(0))
-print(fib(1))
-print(fib(2))
-print(fib(3))
-print(fib(4))
-print(fib(5))
-print(fib(6))
-print(fib(7))
-print(fib(8))
-print(fib(9))
+print(fibonacci(0))
+print(fibonacci(1))
+print(fibonacci(2))
+print(fibonacci(3))
+print(fibonacci(4))
+print(fibonacci(5))
+print(fibonacci(6))
+print(fibonacci(7))
+print(fibonacci(8))
+print(fibonacci(9))
