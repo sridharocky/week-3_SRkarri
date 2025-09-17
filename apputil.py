@@ -79,10 +79,8 @@ def task_1():
 def task_2():
     print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
-    grp = data_frame.groupby("date_in").size()
-    result = pandas.DataFrame({
-        "date_in": grouped.index,
-        "totl_admissions": grouped.values})
+    result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
+ 
     #Grouping the data by the 'date_in' column, which represents admission dates,
     #counts the number of rows per date using size()
     #then resets the index to turn the grouped data back into a DataFrame
