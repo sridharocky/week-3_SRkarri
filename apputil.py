@@ -68,7 +68,7 @@ def task_1():
     print(missing_count)
     
     # Sort only by number of missing values, keep dataset column order for ties
-    sort_cols = missing_count.sort_values(kind="mergesort").index.tolist()
+    sort_cols = missing_count.sort_values().index.tolist()
        
     return sort_cols
 
