@@ -63,19 +63,14 @@ data_frame = data.copy()
 def task_1():
     print("\n Exercise 1: \n") 
     
-    # Count missing values
-    missing_count = data.isnull().sum().reset_index()
-    missing_count.columns = ["column", "missing"]
-    print(missing_count)    
+    # Count missing values in each column (Series preserves column order)
+    missing_count = data.isnull().sum()
+    print(missing_count)
     
-    # Sort ONLY by number of missing values, preserving original order for ties
-    sort_cols = missing_count.sort_values(
-        by="missing", 
-        kind="mergesort"
-    )["column"].tolist()
+    # Sort only by number of missing values, keep dataset column order for ties
+    sort_cols = missing_count.sort_values(kind="mergesort").index.tolist()
     
     return sort_cols
-
 
 
 def task_2():
