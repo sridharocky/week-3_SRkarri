@@ -68,22 +68,25 @@ def task_1():
     print(missing_count)
     
     # Sort only by number of missing values, keep dataset column order for ties
-    #sort_cols = missing_count.sort_values(kind="mergesort").index.tolist()
-    sort_cols = sorted(data.columns, key=lambda col: missing_count[col])
-    
+    sort_cols = missing_count.sort_values(kind="mergesort").index.tolist()
+       
     return sort_cols
 
 
 def task_2():
     print("\nExercise 2: \n")   #printing header "exercise 2" for clarity
 
-    #result = data_frame.groupby("date_in").size().reset_index(name="total_admissions")
-    grouped = data_frame.groupby("date_in").size()
-    #Grouping the data by the 'date_in' column, which represents admission dates,
-    #counts the number of rows per date using size()
-    #then resets the index to turn the grouped data back into a DataFrame
-    result = [(idx,count) for idx, count in grouped.items()]
-    return result #prints the result to show how many admisisons at each date
+    data['date_in'] = pandas.to_datetime(data['date_in'], errors='coerce')
+
+    # Extract year
+    data['year'] = data['date_in'].dt.year
+
+    # Group by year and count entries
+    result = data.groupby('year').size().reset_index()
+
+    # Rename columns
+    result.columns = ['year', 'total_admissions']
+    return result
 
 
 def task_3():
