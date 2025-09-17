@@ -73,7 +73,7 @@ def task_1():
     sort_cols = missing_count.sort_values().index.tolist()
     #sort the column names based on the number of missing values
     
-    print(sort_cols)#print the sorted list of column names
+    return sort_cols#print the sorted list of column names
 
 
 def task_2():
@@ -84,7 +84,7 @@ def task_2():
     #counts the number of rows per date using size()
     #then resets the index to turn the grouped data back into a DataFrame
 
-    print(result)   #prints the result to show how many admisisons at each date
+    return result   #prints the result to show how many admisisons at each date
 
 
 def task_3():
@@ -99,11 +99,11 @@ def task_3():
 
     result = data_frame.groupby("gender")["age"].mean()
     #Group the data by gender and calcluate the average age for each gender
-    print(result)
+    return result
 
 
 def task_4():
-    print("\nExercise: \n")
+    print("\nExercise4: \n")
 
     #checks if there are any missing values in the "profession" column
     if data_frame["profession"].isnull().any():
@@ -111,11 +111,11 @@ def task_4():
 
     #get the top 5 most common professions using value_counts()
     top_5 = data_frame["profession"].value_counts().head(5)
-    print(top_5)
+    return top_5
 
 
  #calling the function ot run
-task_1()
-task_2()
-task_3()
-task_4()
+print(task_1())
+print(task_2())
+print(task_3())
+print(task_4())
