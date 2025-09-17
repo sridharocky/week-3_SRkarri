@@ -81,7 +81,7 @@ def task_2():
     #counts the number of rows per date using size()
     #then resets the index to turn the grouped data back into a DataFrame
 
-    return result,  #prints the result to show how many admisisons at each date
+    return result #prints the result to show how many admisisons at each date
 
 
 def task_3():
